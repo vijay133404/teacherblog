@@ -12,7 +12,7 @@
     <tr>
       <td><%= teacher.title %></td>
       <td><%= teacher.description%></td>
-      <td><%= image_tag teacher.image%></td>
+      <td><%= image_tag teacher.image, :height=>"200",:width=>"200" %></td>
 
       <td><%= link_to 'Show', teacher_path(teacher) %></td>
       <td><%= link_to 'edit', edit_teacher_path(teacher) %></td>
