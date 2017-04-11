@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root 'teachers#index'
 
    resources:teachers
+
+   get "/my_teachers" =>"teachers#my_teachers"
 end

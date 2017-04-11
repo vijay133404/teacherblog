@@ -15,8 +15,10 @@ before_action :authenticate_user!
       def create
   
           @teacher = Teacher.new(teacher_params)
- 
+          @teacher.user_id = current_user.id
+
           if @teacher.save
+
             redirect_to "/teachers/#{@teacher.id}" , notice:'teachers was successfully created' 
             else
              render 'new'
@@ -42,7 +44,9 @@ before_action :authenticate_user!
         	redirect_to teachers_path, notice:'teachers was successfully deleted' 
         end
 
-
+         def my_teachers
+         @teachers = Teacher.where(:user_id => current_user.id)
+       end
           private
 
           def teacher_params
